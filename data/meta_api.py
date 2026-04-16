@@ -145,7 +145,7 @@ def get_full_image_urls(token: str, base_url: str, acc_id: str, hashes: list[str
         batch = hashes[i:i + 50]
         data = _get(f"{base_url}/{acc_id}/adimages", {
             "access_token": token,
-            "hashes": _json.dumps(batch),
+            "hashes": _json.dumps(batch, separators=(",", ":")),
             "fields": "id,name,url,width,height",
         })
         for img in data.get("data", []):

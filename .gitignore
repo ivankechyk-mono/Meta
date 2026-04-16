@@ -1,6 +1,6 @@
 .env
 __pycache__/
 *.pyc
-data/cache/
+# data/cache/
 output/
 .DS_Store
