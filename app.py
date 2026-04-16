@@ -226,27 +226,27 @@ def page_table(df: pd.DataFrame, visual: dict, agg: dict):
 
         with c_ctr:
             ctr = row.get("ctr_bayes", 0)
-            st.metric(label="CTR", value=f"{ctr:.2%}", label_visibility="collapsed")
+            st.markdown(f"{ctr:.2%}")
 
         with c_cvr:
             cvr = row.get("cvr_bayes", 0)
-            st.metric(label="CVR", value=f"{cvr:.2%}", label_visibility="collapsed")
+            st.markdown(f"{cvr:.2%}")
 
         with c_res:
             results = row.get("results", 0)
             rat     = row.get("results_action_type", "")
             rat_short = rat.split(".")[-1] if rat else "—"
-            st.metric(label="Results", value=f"{int(results)}", label_visibility="collapsed")
+            st.markdown(f"{int(results)}")
             if rat_short and rat_short != "—":
                 st.caption(rat_short)
 
         with c_cpa:
             cpa = row.get("cpa")
-            st.metric(label="CPA", value=f"${cpa:.2f}" if cpa else "—", label_visibility="collapsed")
+            st.markdown(f"${cpa:.2f}" if cpa else "—")
 
         with c_spend:
             spend = row.get("spend", 0)
-            st.metric(label="Spend", value=f"${spend:.0f}", label_visibility="collapsed")
+            st.markdown(f"${spend:.0f}")
 
         st.divider()
 
